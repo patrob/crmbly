@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Paper } from "@mui/material";
+import { Box, Typography, Paper, Stack } from "@mui/material";
 import {
   BarChart,
   Bar,
@@ -22,8 +22,8 @@ export default function Dashboard() {
       <Typography variant="h4" gutterBottom>
         Dashboard
       </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+      <Stack spacing={3}>
+        <Box sx={{ maxWidth: 600 }}>
           <Paper sx={{ p: 2, height: 300 }}>
             <Typography variant="h6" gutterBottom>
               New Customers per Month
@@ -38,8 +38,9 @@ export default function Dashboard() {
               </BarChart>
             </ResponsiveContainer>
           </Paper>
-        </Grid>
-      </Grid>
+        </Box>
+      </Stack>
     </Box>
   );
 }
+

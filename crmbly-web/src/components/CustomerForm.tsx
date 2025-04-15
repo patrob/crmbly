@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Box, Button, TextField, Typography, Paper, Grid } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Paper,
+  Stack,
+} from "@mui/material";
 
 interface CustomerFormData {
   name: string;
@@ -49,54 +56,44 @@ export default function CustomerForm() {
       </Typography>
       <Paper sx={{ p: 3, maxWidth: 600 }}>
         <form onSubmit={handleSubmit}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Box sx={{ display: "flex", gap: 2 }}>
-                <Button variant="contained" color="primary" type="submit">
-                  {id ? "Update" : "Create"}
-                </Button>
-                <Button
-                  variant="outlined"
-                  onClick={() => navigate("/customers")}
-                >
-                  Cancel
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
+          <Stack spacing={3}>
+            <TextField
+              fullWidth
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              fullWidth
+              label="Phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Button variant="contained" color="primary" type="submit">
+                {id ? "Update" : "Create"}
+              </Button>
+              <Button variant="outlined" onClick={() => navigate("/customers")}>
+                Cancel
+              </Button>
+            </Box>
+          </Stack>
         </form>
       </Paper>
     </Box>
   );
 }
+
