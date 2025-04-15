@@ -1,7 +1,5 @@
 provider "azurerm" {
   features {}
-  # Use the environment variables set by the azure/login action
-  use_cli = false
 }
 
 terraform {
